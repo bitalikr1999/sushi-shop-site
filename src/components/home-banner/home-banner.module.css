@@ -1,0 +1,32 @@
+.container {
+    background-size: cover;
+    height: calc(100vh - 100px);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;    
+    background-image: url('../../assets//banner-bg.png');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 500px;
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.text {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-weight: 300;
+}

@@ -1,0 +1,25 @@
+.container {
+    padding: 19px 10px 19px 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid transparent;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container:hover, .active {
+    background-color: #fff;
+    border: 1px solid #E9E9E9
+}
+
+.icon { 
+    margin-right: 30px;
+}
+
+.text {
+    font-size: 16px;
+    
+    color: #505050;
+}
