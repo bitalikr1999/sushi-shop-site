@@ -3,18 +3,25 @@
     padding: 30px 25px 20px;
     border-right: 1px solid #e9e9e9;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .top {
-    padding-left: 15px;
+    padding-left: 3px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 26px;
 }
 
 .top p {
     margin-left: 15px;
     font-size: 18px;
     text-transform: uppercase;
+}
+
+.footer {
+
 }

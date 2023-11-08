@@ -1,0 +1,30 @@
+.footerItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+.footerItem svg {
+    font-size: 18px;
+    text-align: center;
+    width: 40px;
+    fill: #4FAF73
+}
+
+
+.footerItem p {
+    flex: 1;
+}
+
+.footerItem a {
+    text-decoration: none;
+    color:#008bff
+}
+
+.footerItem span {
+    color: #4FAF73;
+    font-weight: 600;
+}

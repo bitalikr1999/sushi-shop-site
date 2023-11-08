@@ -4,7 +4,7 @@ export const menuListConfig = [
   {
     icon: icon,
     title: "Суші",
-    url: "/catalog/sushi",
+    url: "/catalog/rolls",
   },
   {
     icon: icon,

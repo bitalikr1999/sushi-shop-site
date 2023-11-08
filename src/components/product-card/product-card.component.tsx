@@ -1,36 +1,42 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { FC } from "react";
 import styles from "./product-card.module.css";
 import Image from "next/image";
 import cardImg from "@/assets/card.jpeg";
+import { IProduct } from "@/typing/interfaces";
+import { AddProductToBasketButton } from "./add-product-to-basket-btn.component";
 
-export const ProductCard = () => {
+interface Props {
+  product: IProduct;
+}
+export const ProductCard: FC<Props> = ({ product }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgBlock}>
         <Image
           className={styles.img}
           alt=""
-          src={cardImg}
+          src={product.previewMedia ? product.previewMedia?.url : cardImg}
           layout="fill"
           objectFit="cover"
         />
       </div>
 
       <div className={styles.content}>
-        <p className={styles.weight}>450 гр.</p>
-        <p className={styles.title}>Ролли з лососем теріякі</p>
-        <p className={styles.description}>
-          Лосось, бальзамічний оцет, соус "Теріякі"
-        </p>
+        <p className={styles.weight}>{product.content.weight} гр.</p>
+        <p className={styles.title}>{product.translate.name}</p>
+        <div
+          className={styles.description}
+          dangerouslySetInnerHTML={{ __html: product.translate.description }}
+        ></div>
       </div>
 
       <div className={styles.footer}>
         <div className={styles.left}>
-          <p className={styles.price}>250 грн.</p>
+          <p className={styles.price}>{product.price.toLocaleString()} грн.</p>
         </div>
 
-        <button className={styles.btn}>Замовити</button>
+        <AddProductToBasketButton product={product} />
       </div>
     </div>
   );

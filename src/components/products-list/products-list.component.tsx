@@ -1,15 +1,21 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "./products-list.module.css";
 import { ProductCard } from "../product-card";
+import { IProduct } from "@/typing/interfaces";
 
-export const ProductsList = () => {
-  return (
-    <div className={styles.container}>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-    </div>
-  );
+interface Props {
+  items: IProduct[];
+}
+
+export const ProductsList: FC<Props> = ({ items }) => {
+  function getContent() {
+    if (!items || !items.length) {
+      return (
+        <div className={styles.notFound}>
+          <p>По заданих параметрах товарів не знайдено</p>
+        </div>
+      );
+    } else return items.map((it) => <ProductCard product={it} key={it.id} />);
+  }
+  return <div className={styles.container}>{getContent()}</div>;
 };

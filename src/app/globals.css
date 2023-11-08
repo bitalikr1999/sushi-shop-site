@@ -22,6 +22,9 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+
+}
+* {
   box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
@@ -84,4 +87,27 @@ table {
 .button:hover {
   background-color: transparent;
   color: #149544;
+}
+
+
+.page-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  font-size: 20px;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.page-404 p {
+  display: block;
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+
+.rs-drawer-content {
+  display: flex;
+  flex-direction: column;
 }

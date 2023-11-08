@@ -1,0 +1,15 @@
+.container {
+    margin-bottom: 12px;
+}
+
+.title {
+    font-size: 16px;
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}

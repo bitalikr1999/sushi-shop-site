@@ -1,0 +1,43 @@
+.basket {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    /* border-radius: 100px; */
+    border: 2px solid #4FAF73;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+.basket:hover {
+    background-color: #4FAF73;
+    border-radius: 20px 0 20px 30px;
+}
+
+
+.basket svg {
+    fill: #4FAF73;
+}
+
+.basket:hover svg {
+    fill: #fff
+}
+
+.count {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background-color: #4FAF73;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 30px;
+
+}

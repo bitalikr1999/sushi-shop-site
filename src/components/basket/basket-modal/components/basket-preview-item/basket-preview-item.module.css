@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 26px;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.priceRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.title { 
+    font-size: 18px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+}
+
+.price {
+    color: #4FAF73;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.weight { 
+    opacity: 0.6;
+}
+
+.close {
+    margin-left: 15px;
+    height: 30px;
+    width: 30px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.close:hover {
+    background-color: #ec1b1b;
+
+}
+
+.close:hover svg {
+    color: #fff 
+} 

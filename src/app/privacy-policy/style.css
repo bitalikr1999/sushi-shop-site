@@ -1,0 +1,24 @@
+/* Стилі для контейнера сторінки політики конфіденційності */
+.privacy-policy-container {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  
+  .privacy-policy-container h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  .privacy-policy-container h2 {
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .privacy-policy-container p {
+    margin-bottom: 15px;
+  }
+  
+  /* Додаткові стилі можна додати тут */
+  

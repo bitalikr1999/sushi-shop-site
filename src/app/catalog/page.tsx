@@ -1,11 +1,12 @@
 import { ProductsList } from "@/components/products-list";
+import { productsService } from "@/services/products.service";
 
-const CatalogPage = () => {
+const CatalogPage = async () => {
+  const products = await productsService.getList();
+
   return (
     <div>
-      <div>
-        <ProductsList />
-      </div>
+      <ProductsList items={products} />
     </div>
   );
 };

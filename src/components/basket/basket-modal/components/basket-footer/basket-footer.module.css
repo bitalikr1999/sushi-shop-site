@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    flex: 1
+}
+
+.txt {
+    opacity: 0.6;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.price {
+    color: #4FAF73;
+    font-size: 32px;
+    font-weight: 600;
+}

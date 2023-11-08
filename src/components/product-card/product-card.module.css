@@ -41,7 +41,8 @@
 
 .description {
     font-size: 14px;
-    color: #8B8B8B
+    color: #8B8B8B;
+    min-height: 40px;
 }
 
 .content {

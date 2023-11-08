@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.input {
+    padding-left: 40px;
+    /* border-radius: 8px; */
+    border: 1px solid rgba(0,0,0,.1);
+    height: 36px;
+    width: 100%;
+    outline: none;
+}
+
+.icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.6;
+}
+
+.inputWrap {
+    position: relative;
+}

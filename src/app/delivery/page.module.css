@@ -1,0 +1,23 @@
+
+
+.container {
+    padding: 30px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.txt {
+
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.container ul {
+    list-style: disc;
+    padding-left: 30px;
+}

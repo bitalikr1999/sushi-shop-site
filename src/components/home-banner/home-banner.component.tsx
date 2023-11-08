@@ -14,7 +14,7 @@ export const HomeBanner = () => {
           курко, ікрою та морепродктами. адже смак кожного компонента має
           величезний вплив на смак суші!
         </p>
-        <Link className="button" href="">
+        <Link className="button" href="/catalog">
           Замовити
         </Link>
       </div>

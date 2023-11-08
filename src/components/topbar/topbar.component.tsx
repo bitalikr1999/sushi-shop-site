@@ -7,14 +7,14 @@ export const TopBar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <Link href="#" className={styles.linkItem}>
+        <Link href="/discounts" className={styles.linkItem}>
           Акцій
         </Link>
-        <Link href="" className={styles.linkItem}>
+        <Link href="/contacts" className={styles.linkItem}>
           Контакти
         </Link>
-        <Link href="" className={styles.linkItem}>
-          Про нас
+        <Link href="/delivery" className={styles.linkItem}>
+          Оплата/Доставка
         </Link>
       </div>
       <Link href="/" className={styles.logo}>
