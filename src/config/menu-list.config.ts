@@ -11,19 +11,24 @@ export const menuListConfig = [
     title: "Сети",
     url: "/catalog/sets",
   },
-  {
-    icon: icon,
-    title: "Макі",
-    url: "/catalog/maki",
-  },
+  // {
+  //   icon: icon,
+  //   title: "Макі",
+  //   url: "/catalog/maki",
+  // },
   {
     icon: icon,
     title: "Фрі-меню",
-    url: "/catalog/fry",
+    url: "/catalog/fry-menu",
   },
   {
     icon: icon,
     title: "Хот-доги",
     url: "/catalog/hot-dog",
+  },
+  {
+    icon: icon,
+    title: "Бургери",
+    url: "/catalog/burgers",
   },
 ];

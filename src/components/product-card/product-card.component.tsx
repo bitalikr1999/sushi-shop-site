@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import styles from "./product-card.module.css";
 import Image from "next/image";
-import cardImg from "@/assets/card.jpeg";
+import emptyimg from "@/assets/empty.jpeg";
 import { IProduct } from "@/typing/interfaces";
 import { AddProductToBasketButton } from "./add-product-to-basket-btn.component";
 
@@ -16,7 +16,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
         <Image
           className={styles.img}
           alt=""
-          src={product.previewMedia ? product.previewMedia?.url : cardImg}
+          src={product.previewMedia ? product.previewMedia?.url : emptyimg}
           layout="fill"
           objectFit="cover"
         />
