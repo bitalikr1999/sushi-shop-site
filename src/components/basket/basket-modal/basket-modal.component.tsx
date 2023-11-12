@@ -15,11 +15,33 @@ import {
   useBackerPreviewStore,
 } from "@/store/basket-preview.store";
 import { useRouter } from "next/navigation";
+import { IScheduleShift } from "@/typing/interfaces";
+import { getCurrentShiftReq } from "@/api/schedule";
+import { workTimeService } from "@/services/work-time.service";
 
 export const BasketModal = () => {
   const isOpen = useBasketStore((state) => state.isBasketModalOpened);
   const closeModal = useBasketStore((state) => state.closeModal);
   const router = useRouter();
+
+  const [shift, setShift] = useState<IScheduleShift>();
+
+  const load = async () => {
+    try {
+      const { data } = await getCurrentShiftReq();
+      setShift(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  const shiftMessage = useMemo(() => {
+    return workTimeService.getCurrentStateMessage(shift);
+  }, [shift]);
 
   const goToCheckout = () => {
     closeModal();
@@ -35,7 +57,11 @@ export const BasketModal = () => {
         <BasketList />
       </Drawer.Body>
       <Drawer.Footer>
-        <BasketFooter onPress={goToCheckout} />
+        {shiftMessage ? (
+          <p>{shiftMessage}</p>
+        ) : (
+          <BasketFooter onPress={goToCheckout} />
+        )}
       </Drawer.Footer>
     </Drawer>
   );

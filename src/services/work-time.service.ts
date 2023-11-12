@@ -1,3 +1,6 @@
+import { IScheduleShift } from "@/typing/interfaces";
+import moment from "moment";
+
 class WorkTimeService {
   public getStartWork() {
     return 1000;
@@ -34,14 +37,14 @@ class WorkTimeService {
     return combinedNumber;
   }
 
-  public convertNumberToTime(timeNumber: number): Date | string {
+  public convertNumberToTime(timeNumber: number): Date {
     const timeStr: string = timeNumber.toString().padStart(4, "0"); // Забезпечуємо чотирицифровий формат
 
     const hours: number = parseInt(timeStr.substring(0, 2));
     const minutes: number = parseInt(timeStr.substring(2, 4));
 
     if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
-      return "Некоректний формат часу";
+      throw new Error("Некоректний формат часу");
     }
 
     const date: Date = new Date();
@@ -49,6 +52,32 @@ class WorkTimeService {
     date.setMinutes(minutes);
 
     return date;
+  }
+
+  public getTimeString(timeNumber: number): string {
+    try {
+      const date = this.convertNumberToTime(timeNumber);
+      return moment(date).format("HH:MM");
+    } catch (e) {
+      return "";
+    }
+  }
+
+  public getCurrentStateMessage(shift: IScheduleShift | undefined) {
+    if (!shift) return "";
+
+    if (shift?.isClosed)
+      return "Заклад не приймає сьогодні замовлень, вибачте за незручності.";
+
+    const nowTime = workTimeService.combineTimeToNumber(new Date());
+
+    if (nowTime < shift?.start)
+      return `Заклад відчинеться о ${workTimeService.getTimeString(
+        shift.start
+      )}`;
+
+    if (nowTime > shift.end)
+      return "Вибачте за незручності але ми вже зачинені і не приймаємо замовлень сьогодні. Повертайтесь завтра";
   }
 }
 

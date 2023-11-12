@@ -11,6 +11,7 @@ import { BasketModal } from "@/components/basket/basket-modal";
 import dynamic from "next/dynamic";
 
 import { PHProvider } from "./providers";
+import { ScheduleAlert } from "@/components/schedule-alert";
 
 const inter = Roboto_Condensed({ subsets: ["latin"], weight: "400" });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
       </Head>
       <body className={inter.className}>
         <PHProvider>
+          <ScheduleAlert />
           <NextTopLoader color="#ff6500" height={1} />
           <div className="layout">
             <Sidebar />

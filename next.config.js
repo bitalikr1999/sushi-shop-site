@@ -24,6 +24,11 @@ const nextConfig = {
         port: "5005",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "fs.dasushi.km.ua",
+        pathname: "**",
+      },
     ],
   },
 };

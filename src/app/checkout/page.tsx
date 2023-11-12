@@ -7,16 +7,17 @@ import { BasketList } from "@/components/basket/basket-list";
 import { BasketFooter } from "@/components/basket/basket-modal/components/basket-footer";
 import { useForm } from "@/hooks/use-form";
 import { validateCheckoutForm } from "./validator";
-import { ShippingType } from "@/typing/interfaces";
+import { IScheduleShift, ShippingType } from "@/typing/interfaces";
 import { FormRadioControll } from "@/components/forms/form-radio-controll";
 import "react-datepicker/dist/react-datepicker.css";
 import { FormSelectTime } from "@/components/forms/form-select-time";
 import { workTimeService } from "@/services/work-time.service";
 import { createOrderReq } from "@/api/orders/create-order.req";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBasketStore } from "@/store/basket.store";
 import { useBackerPreviewStore } from "@/store/basket-preview.store";
+import { getCurrentShiftReq } from "@/api/schedule";
 
 interface Form {
   userName: string;
@@ -40,6 +41,25 @@ const CheckoutPage = () => {
   const clearBasketPreview = useBackerPreviewStore((s) => s.clear);
 
   const [isLoading, setLoading] = useState(false);
+
+  const [shift, setShift] = useState<IScheduleShift>();
+
+  const load = async () => {
+    try {
+      const { data } = await getCurrentShiftReq();
+      setShift(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  const shiftMessage = useMemo(() => {
+    return workTimeService.getCurrentStateMessage(shift);
+  }, [shift]);
 
   const submit = async () => {
     try {
@@ -68,8 +88,7 @@ const CheckoutPage = () => {
     }
   };
 
-  console.log(form.errors);
-
+  if (shiftMessage) return <p>{shiftMessage}</p>;
   return (
     <div className={styles.container}>
       <div className={styles.left}>
