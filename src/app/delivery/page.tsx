@@ -20,14 +20,10 @@ const DeliveryInfoPage = () => {
           </strong>
         </p>
         <p className={styles.txt}>
-          <strong>Безкоштовна</strong>&nbsp;доставка по місту від 550&nbsp;грн.
+          <strong>Безкоштовна</strong>&nbsp;доставка по місту від 450&nbsp;грн.
         </p>
-        <p className={styles.txt}>Платна доставка - 60 грн.</p>
+        <p className={styles.txt}>Платна доставка - 70 грн.</p>
         <p className={styles.txt}>Доставка здійснюється в&nbsp;межах міста</p>
-        <p>
-          <strong>Оплата замовлення готівкою або карткою</strong> (термінали у
-          кур{"'"}єрів).
-        </p>
       </div>
     </div>
   );

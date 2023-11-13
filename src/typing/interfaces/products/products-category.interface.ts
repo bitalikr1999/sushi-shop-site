@@ -1,29 +1,30 @@
-import { Lang } from '@/typing/enums'
+import { Lang } from "@/typing/enums";
 
 export interface IProductCategory {
-  id: number
-  parentId?: number
+  id: number;
+  parentId?: number;
 
-  key?: string
+  key?: string;
 
-  data?: string
+  data?: string;
 
-  createdAt: string
-  updatedAt: string
+  createdAt: string;
+  updatedAt: string;
 
-  authorId?: number
+  authorId?: number;
 
-  childrens?: IProductCategory[]
+  childrens?: IProductCategory[];
 
-  translations?: IProductCategoryTranslation[]
+  translations?: IProductCategoryTranslation[];
+  translate: IProductCategoryTranslation;
 }
 
 export interface IProductCategoryTranslation {
-  id?: number
-  categoryId: number
+  id?: number;
+  categoryId: number;
 
-  lang: Lang
+  lang: Lang;
 
-  name: string
-  description?: string
+  name: string;
+  description?: string;
 }

@@ -39,6 +39,41 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
         ></link>
+        <meta
+          name="description"
+          content="Найкраща доставка суші у Хмельницькому - DaSushi. Замовте свої улюблені роли та страви прямо до дому."
+        />
+
+        <meta
+          property="og:title"
+          content="DaSushi - Доставка суші у Хмельницькому"
+        />
+        <meta
+          property="og:description"
+          content="Найкраща доставка суші у Хмельницькому. Замовте свої улюблені роли та страви прямо до дому."
+        />
+        <meta
+          property="og:image"
+          content="https://dasushi.km.ua/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.0761fcf4.png&w=640&q=75ж"
+        />
+        <meta
+          property="og:url"
+          content="https://dasushi.km.ua/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.0761fcf4.png&w=640&q=75"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="DaSushi - Доставка суші у Хмельницькому"
+        />
+        <meta
+          name="twitter:description"
+          content="Найкраща доставка суші у Хмельницькому. Замовте свої улюблені роли та страви прямо до дому."
+        />
+        <meta
+          name="twitter:image"
+          content="https://dasushi.km.ua/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.0761fcf4.png&w=640&q=75"
+        />
       </Head>
       <body className={inter.className}>
         <PHProvider>

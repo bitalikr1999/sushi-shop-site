@@ -1,15 +1,19 @@
 import { menuListConfig } from "@/config/menu-list.config";
 import { MenuItem } from "../menu-item";
+import { fetchProductsCategoriesReq } from "@/api/products";
+import icon from "@/assets/icon-sushi.png";
 
-export const MenuList = () => {
+export const MenuList = async () => {
+  const { data: categories } = await fetchProductsCategoriesReq({});
+
   const renderItems = () => {
-    return menuListConfig.map((item) => {
+    return categories.map((item) => {
       return (
         <MenuItem
-          icon={item.icon}
-          title={item.title}
-          url={item.url}
-          key={item.url}
+          icon={icon}
+          title={item.translate?.name}
+          url={`/catalog/${item.key}`}
+          key={item.key}
         />
       );
     });

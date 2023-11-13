@@ -21,11 +21,19 @@ export const TopBar = () => {
         <Image src={logoImg} alt="" width={200} />
       </Link>
       <div className={styles.right}>
-        <Link href="#" className={styles.linkItem}>
-          +38 (098) 071-79-70
+        <Link
+          href="tel:380973055904"
+          className={styles.linkItem}
+          target="__blank"
+        >
+          +38 097-305-59-04
         </Link>
-        <Link href="#" className={styles.linkItem}>
-          +38 (098) 071-79-70
+        <Link
+          href="https://www.instagram.com/_da_sushi_/"
+          className={styles.linkItem}
+          target="__blank"
+        >
+          inst: _da_sushi_
         </Link>
       </div>
     </div>

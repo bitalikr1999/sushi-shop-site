@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0 10px;
+    padding: 0 16px;
+}
+
+
+.item {
+    text-decoration: none;
+    color: #000;
+    text-transform: none;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,.2);
+    margin-right: 15px;
+    background-color: #fff;
+}

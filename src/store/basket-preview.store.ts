@@ -21,6 +21,7 @@ export const useBackerPreviewStore = create<BasketPreviewStore>((set) => ({
       const { data } = await getBasketPreviewReq({ items });
       set((state) => ({ ...state, isLoading: false, data }));
     } catch (e) {
+      useBasketStore.getState().clear();
       set((state) => ({ ...state, isLoading: false }));
     }
   },

@@ -11,11 +11,10 @@ const DeliveryInfoPage = () => {
         <div className={styles.content}>
           <p>
             Ви можете знайти нас за адрессою:{" "}
-            <strong>вулиця Зарічанська, 38</strong>
+            <strong>вулиця Зарічанська, 38, Хмельницький</strong>
           </p>
-          <Link href="tel:380980717970">380 (98) 071-79-70</Link>
-          <Link href="tel:380980717970">380 (98) 071-79-70</Link>
-          <Link href="mailto:bitalikrty@gmail.com">bitalikrty@gmail.com</Link>
+          <Link href="tel:380980717970">380 (97) 305-59-04</Link>
+          <Link href="mailto:bitalikrty@gmail.com">matveivova6@gmail.com</Link>
 
           <Link href="https://www.instagram.com/_da_sushi_/">
             Наш інстаграм: _da_sushi_

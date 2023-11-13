@@ -3,15 +3,11 @@ import moment from "moment";
 
 class WorkTimeService {
   public getStartWork() {
-    return 1000;
+    return 1100;
   }
 
   public getEndWork() {
     return 2100;
-  }
-
-  public getRangeToOrder() {
-    const min = this.convertNumberToTime(this.getMinRangeToOrder());
   }
 
   public getMinRangeToOrder() {

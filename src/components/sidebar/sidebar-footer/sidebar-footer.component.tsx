@@ -11,14 +11,16 @@ export const SidebarFooter = () => {
       <div className={styles.footerItem}>
         <TimeIcon />
         <p>
-          Графік роботи <br /> з <span>12:00</span> до <span>22:30</span>
+          Графік роботи <br /> з <span>11:00</span> до <span>22:00</span>
+          <br />
+          Без вихідних
         </p>
       </div>
 
       <div className={styles.footerItem}>
         <TimeIcon />
         <p>
-          Безкоштовна доставка при замовленні від <span>550 грн.</span>{" "}
+          Безкоштовна доставка при замовленні від <span>450 грн.</span>{" "}
         </p>
       </div>
 

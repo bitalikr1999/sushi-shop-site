@@ -1,0 +1,12 @@
+
+.item {
+    text-decoration: none;
+    color: #000;
+    text-transform: none;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,.2);
+    margin-right: 15px;
+    background-color: #fff;
+    display: inline-block;
+    margin-bottom: 10px;
+}
