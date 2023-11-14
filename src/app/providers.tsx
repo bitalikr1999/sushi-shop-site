@@ -9,7 +9,7 @@ if (typeof window !== "undefined") {
   posthog.init("phc_pGqe3oSobipawPOEYKGj88Lnk5uRNZij5U7vJhGXU0t", {
     api_host: "https://app.posthog.com",
     loaded: (posthog) => {
-      if (process.env.NODE_ENV === "development") posthog.debug();
+      if (process.env.NEXT_PUBLIC_MODE === "dev") posthog.debug();
     },
   });
 }

@@ -16,6 +16,7 @@ export interface CreateOrderPayload {
   shipping: Shipping;
   comment?: string;
   usedBonuses?: number;
+  deliveryToTime?: string;
 }
 
 interface ProductItem {

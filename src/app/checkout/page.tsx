@@ -16,8 +16,12 @@ import { createOrderReq } from "@/api/orders/create-order.req";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBasketStore } from "@/store/basket.store";
-import { useBackerPreviewStore } from "@/store/basket-preview.store";
+import {
+  selectBacketPreview,
+  useBackerPreviewStore,
+} from "@/store/basket-preview.store";
 import { getCurrentShiftReq } from "@/api/schedule";
+import posthog from "posthog-js";
 
 interface Form {
   userName: string;
@@ -43,6 +47,7 @@ const CheckoutPage = () => {
   const [isLoading, setLoading] = useState(false);
 
   const [shift, setShift] = useState<IScheduleShift>();
+  const basketPreview = useBackerPreviewStore(selectBacketPreview);
 
   const load = async () => {
     try {
@@ -76,6 +81,15 @@ const CheckoutPage = () => {
           addressLine: form.values.addresLine,
         },
         comment: form.values.comment,
+        deliveryToTime: form.values.deliveryToTime,
+      });
+
+      posthog.capture("checkout", {
+        $set: { total: basketPreview.nettoAmount },
+      });
+
+      posthog.identify(form.values.userPhone, {
+        name: `${form.values.userName}`,
       });
 
       clearBasket();

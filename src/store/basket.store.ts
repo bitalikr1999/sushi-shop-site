@@ -2,6 +2,7 @@
 import { IProduct } from "@/typing/interfaces";
 import { IBasketItem } from "@/typing/interfaces/basket";
 import { defaultTo } from "lodash";
+import posthog from "posthog-js";
 import { create } from "zustand";
 
 interface BasketStore {
@@ -36,6 +37,9 @@ export const useBasketStore = create<BasketStore>((set) => ({
     set((state) => save({ ...state, items: [], isBasketModalOpened: false }));
   },
   add: (item) => {
+    posthog.capture("add_to_basket", {
+      $set: { productName: item.translate?.name, price: item.price },
+    });
     set((state) => save({ ...state, items: addToBasket(state.items, item) }));
   },
   openModal: () => {
