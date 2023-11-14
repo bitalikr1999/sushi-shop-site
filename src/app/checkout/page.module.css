@@ -39,3 +39,18 @@
 .summBlock {
     margin-top: 50px;
 }
+
+@media screen and (max-width: 1200px) {
+    .container {
+        display: block;
+    }
+    .left {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
