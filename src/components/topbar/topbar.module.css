@@ -29,3 +29,63 @@
     color: #ff6500;
     font-weight: 600;
 }
+
+.logo {
+    position: relative;
+    width: 200px;
+    height: 50px;
+}
+
+
+@media screen and (max-width: 1440px){
+    .linkItem {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    .container {
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .linkItem {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .container {
+        height: 60px;
+    }
+    .logo {
+        width: 100px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .linkItem {
+        display: none
+    }
+
+    .container {
+        padding: 10px 16px 0;
+    }
+    .right {
+        justify-content: flex-end;
+    }
+
+    .logo {
+        width: 160px;
+        height: 60px;
+    }
+
+    .left {
+        display: none;
+    }
+   
+}

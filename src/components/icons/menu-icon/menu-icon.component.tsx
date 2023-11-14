@@ -3,9 +3,9 @@
 import React from "react";
 import styles from "./menu-icon.module.css";
 
-export const MenuIcon = () => {
+export const MenuIcon = ({ isClose }: any) => {
   return (
-    <div className={styles.container}>
+    <div className={isClose ? styles.closeContainer : styles.container}>
       <div className={styles.line}></div>
       <div className={styles.line}></div>
       <div className={styles.line}></div>

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from "react";
 import styles from "./product-card.module.css";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import emptyimg from "@/assets/empty.jpeg";
 import { IProduct } from "@/typing/interfaces";
 import { AddProductToBasketButton } from "./add-product-to-basket-btn.component";
@@ -23,12 +23,14 @@ export const ProductCard: FC<Props> = ({ product }) => {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.weight}>{product.content.weight} гр.</p>
         <p className={styles.title}>{product.translate.name}</p>
         <div
           className={styles.description}
           dangerouslySetInnerHTML={{ __html: product.translate.description }}
         ></div>
+        <p className={styles.weight}>
+          {product.content.weight ? `${product.content.weight} гр.` : null}
+        </p>
       </div>
 
       <div className={styles.footer}>

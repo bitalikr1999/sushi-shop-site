@@ -26,3 +26,15 @@
     font-size: 32px;
     font-weight: 600;
 }
+
+
+@media screen and (max-width: 450px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .left {
+        margin-bottom: 20px;
+    }
+}

@@ -12,6 +12,7 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.1s linear;
+    background-color: #fff;
 }
 
 .basket:hover {

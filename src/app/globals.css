@@ -111,3 +111,19 @@ table {
   display: flex;
   flex-direction: column;
 }
+
+.for-mobile-only {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+    
+  #sidebar.closed {
+    left: -100%;
+  }
+
+
+  .for-mobile-only {
+    display: block;
+  }
+}

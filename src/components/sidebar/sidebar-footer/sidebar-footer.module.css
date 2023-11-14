@@ -28,3 +28,11 @@
     color: #4FAF73;
     font-weight: 600;
 }
+
+
+@media screen and (max-width: 767px) {
+    .footerItem br {
+        content: ' ';
+        margin-right: 3px;
+    }
+}

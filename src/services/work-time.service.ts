@@ -53,7 +53,7 @@ class WorkTimeService {
   public getTimeString(timeNumber: number): string {
     try {
       const date = this.convertNumberToTime(timeNumber);
-      return moment(date).format("HH:MM");
+      return moment(date).format("HH:mm");
     } catch (e) {
       return "";
     }

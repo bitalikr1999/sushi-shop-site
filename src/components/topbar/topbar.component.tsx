@@ -1,7 +1,8 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "./topbar.module.css";
 import logoImg from "@/assets/logo.png";
 import Link from "next/link";
+import { MobileMenuButton } from "../sidebar/mobile-menu-button";
 
 export const TopBar = () => {
   return (
@@ -18,9 +19,10 @@ export const TopBar = () => {
         </Link>
       </div>
       <Link href="/" className={styles.logo}>
-        <Image src={logoImg} alt="" width={200} />
+        <Image src={logoImg} alt="" layout="fill" objectFit="contain" />
       </Link>
       <div className={styles.right}>
+        <MobileMenuButton />
         <Link
           href="tel:380973055904"
           className={styles.linkItem}

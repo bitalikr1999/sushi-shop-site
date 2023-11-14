@@ -16,6 +16,9 @@
 
 .icon { 
     margin-right: 30px;
+    position: relative;
+    width: 34px;
+    height: 34px;
 }
 
 .text {
@@ -23,3 +26,37 @@
     
     color: #505050;
 }
+
+
+@media screen and (max-width: 1440px) {
+    .text {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px 15px;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .icon  {
+        width: 26px;
+        min-width: 26px!important;
+        height: 26px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .text {
+        font-size: 18px;
+    }
+    .container {
+        padding: 17px;
+        border: 1px solid #E9E9E9;
+        margin-bottom: 10px;
+    }
+}
+
+

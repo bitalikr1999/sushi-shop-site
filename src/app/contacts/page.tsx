@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "./page.module.css";
 import mapImg from "@/assets/map.png";
 import Link from "next/link";

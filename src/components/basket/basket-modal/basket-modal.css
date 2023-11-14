@@ -1,0 +1,12 @@
+
+
+@media screen and (max-width: 768px) {
+    .rs-drawer.basket-modal {
+        width: 100%;
+    }
+
+    .rs-drawer-wrapper {
+        z-index: 99999;
+    }
+}
+

@@ -23,10 +23,16 @@
 }
 .right {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1
+}
+
+.controlls {
+    display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-
 .priceRow {
     display: flex;
     justify-content: flex-start;
@@ -69,3 +75,15 @@
 .close:hover svg {
     color: #fff 
 } 
+
+@media screen and (max-width: 500px) {
+    .right {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .controlls {
+        margin-top: 10px;
+    }
+}

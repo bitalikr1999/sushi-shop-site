@@ -1,10 +1,9 @@
 .container { 
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
     flex-wrap: wrap;
-
-    padding: 15px;
+    padding: 16px;
 }
 
 .notFound {
@@ -15,4 +14,10 @@
     height: 500px;
     font-size: 20px;
     opacity: 0.5;
+}
+
+@media screen  and (max-width: 450px) {
+    .container { 
+        align-items: center;
+    }
 }

@@ -2,12 +2,12 @@
 
 import React, { FC, useMemo } from "react";
 import styles from "./menu-item.module.css";
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/legacy/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface Props {
-  icon: StaticImageData;
+  icon?: StaticImageData;
   title: string;
   url: string;
 }
@@ -16,7 +16,6 @@ export const MenuItem: FC<Props> = ({ icon, title, url }) => {
 
   const isActive = useMemo(() => {
     const cutedPathname = pathname.slice(0, url.length);
-
     return cutedPathname === url;
   }, [pathname, url]);
 
@@ -25,13 +24,11 @@ export const MenuItem: FC<Props> = ({ icon, title, url }) => {
       href={url}
       className={`${styles.container} ${isActive ? styles.active : ""}`}
     >
-      <Image
-        className={styles.icon}
-        src={icon}
-        width={34}
-        height={34}
-        alt=""
-      ></Image>
+      {icon ? (
+        <div className={styles.icon}>
+          <Image src={icon} layout="fill" objectFit="contain" alt=""></Image>
+        </div>
+      ) : null}
       <p className={styles.text}>{title}</p>
     </Link>
   );

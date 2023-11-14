@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 import styles from "./basket-preview-item.module.css";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { IBasketPreviewItem } from "@/typing/interfaces/basket";
 import { defaultTo } from "lodash";
 import { CountInput } from "@/components/count-input";
@@ -30,6 +30,8 @@ export const BasketPreviewItem: FC<Props> = ({
             objectFit="cover"
           />
         </div>
+      </div>
+      <div className={styles.right}>
         <div className={styles.content}>
           <p className={styles.title}>{item.translate.name}</p>
           <div className={styles.priceRow}>
@@ -37,12 +39,13 @@ export const BasketPreviewItem: FC<Props> = ({
             <p className={styles.weight}>{item.content?.weight} гр.</p>
           </div>
         </div>
-      </div>
-      <div className={styles.right}>
-        <CountInput value={item.count} onChange={onChangeCount} />
-        <button className={styles.close} onClick={onPressDelete}>
-          <CloseIcon width={20} height={20} />
-        </button>
+
+        <div className={styles.controlls}>
+          <CountInput value={item.count} onChange={onChangeCount} />
+          <button className={styles.close} onClick={onPressDelete}>
+            <CloseIcon width={20} height={20} />
+          </button>
+        </div>
       </div>
     </div>
   );

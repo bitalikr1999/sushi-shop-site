@@ -3,8 +3,26 @@
     height: 3px;
     background-color: #505050;
     margin: 6px 0;
-}
-
-.container { 
+    transition: transform 0.3s; /* додаємо анімацію для зручності */
+  }
+  
+  .container {
     width: 32px;
-}
+  }
+  
+  .closeContainer {
+    width: 32px;
+  }
+  
+  .closeContainer .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .closeContainer .line:nth-child(2) {
+    display: none; /* ховаємо другу лінію */
+  }
+  
+  .closeContainer .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  

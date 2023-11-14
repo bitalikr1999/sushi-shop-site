@@ -10,3 +10,10 @@
     display: inline-block;
     margin-bottom: 10px;
 }
+
+
+@media screen and (max-width: 768px) {
+    .item {
+        padding: 10px
+    }
+}
