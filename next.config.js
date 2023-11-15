@@ -29,6 +29,11 @@ const nextConfig = {
         hostname: "fs.dasushi.km.ua",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "fs-imgproxy.dasushi.km.ua",
+        pathname: "**",
+      },
     ],
   },
 };
