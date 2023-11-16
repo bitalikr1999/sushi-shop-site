@@ -5,14 +5,18 @@ import { IProduct } from "@/typing/interfaces";
 
 interface Props {
   items: IProduct[];
+  emptyMessage?: string;
 }
 
-export const ProductsList: FC<Props> = ({ items }) => {
+export const ProductsList: FC<Props> = ({
+  items,
+  emptyMessage = "По заданих параметрах товарів не знайдено",
+}) => {
   function getContent() {
     if (!items || !items.length) {
       return (
         <div className={styles.notFound}>
-          <p>По заданих параметрах товарів не знайдено</p>
+          <p>{emptyMessage}</p>
         </div>
       );
     } else return items.map((it) => <ProductCard product={it} key={it.id} />);

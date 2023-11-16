@@ -35,7 +35,7 @@ export const BasketPreviewItem: FC<Props> = ({
         <div className={styles.content}>
           <p className={styles.title}>{item.translate.name}</p>
           <div className={styles.priceRow}>
-            <p className={styles.price}>{item.price} грн. - </p>
+            <Price item={item} />
             <p className={styles.weight}>{item.content?.weight} гр.</p>
           </div>
         </div>
@@ -50,3 +50,22 @@ export const BasketPreviewItem: FC<Props> = ({
     </div>
   );
 };
+
+function Price({ item }: { item: IBasketPreviewItem }) {
+  if (item.discount) {
+    return (
+      <div>
+        <p className={styles.price}>
+          {item.nettoAmount.toLocaleString()}
+          грн.
+        </p>
+        <p className={styles.bruttoPrice}>
+          {item.brutoAmount.toLocaleString()}
+          грн.
+        </p>
+      </div>
+    );
+  }
+
+  return <p className={styles.price}>{item.price.toLocaleString()} грн. - </p>;
+}

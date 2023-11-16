@@ -52,6 +52,12 @@
     margin-right: 10px;
 }
 
+.bruttoPrice {
+    text-decoration:line-through;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
 .weight { 
     opacity: 0.6;
 }
