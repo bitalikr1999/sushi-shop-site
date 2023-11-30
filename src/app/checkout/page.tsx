@@ -22,6 +22,7 @@ import {
 } from "@/store/basket-preview.store";
 import { getCurrentShiftReq } from "@/api/schedule";
 import posthog from "posthog-js";
+import { defaultTo } from "lodash";
 
 interface Form {
   userName: string;
@@ -68,6 +69,7 @@ const CheckoutPage = () => {
 
   const submit = async () => {
     try {
+      console.log("errors");
       setLoading(true);
       await createOrderReq({
         user: {
@@ -80,7 +82,10 @@ const CheckoutPage = () => {
           type: form.values.shippingType,
           addressLine: form.values.addresLine,
         },
-        comment: form.values.comment,
+        comment: `${form.values.comment} \n Кількість приборів: ${defaultTo(
+          form.values.numberOfDevice,
+          2
+        )}`,
         deliveryToTime: form.values.deliveryToTime,
       });
 
@@ -220,7 +225,7 @@ const CheckoutPage = () => {
           <FormControllWrap title="Кількість приборів">
             <Input
               value={form.values.numberOfDevice}
-              onChange={(val) => form.setFormField("deliveryToTime", val)}
+              onChange={(val) => form.setFormField("numberOfDevice", val)}
             />
           </FormControllWrap>
 

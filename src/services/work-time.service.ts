@@ -1,20 +1,32 @@
+import { getCurrentShiftReq } from "@/api/schedule";
 import { IScheduleShift } from "@/typing/interfaces";
 import moment from "moment";
 
 class WorkTimeService {
+  protected currentShift: IScheduleShift;
+
+  constructor() {
+    this.load();
+  }
+
+  private async load() {
+    const { data } = await getCurrentShiftReq();
+    this.currentShift = data;
+  }
+
   public getStartWork() {
-    return 1100;
+    return this.currentShift.start;
   }
 
   public getEndWork() {
-    return 2100;
+    return this.currentShift.end;
   }
 
   public getMinRangeToOrder() {
     const nowTime = this.combineTimeToNumber(new Date());
-    if (this.getStartWork() > nowTime) return this.getStartWork() + 30;
+    if (this.getStartWork() > nowTime) return this.getStartWork();
 
-    return nowTime + 30;
+    return nowTime;
   }
 
   public getMaxRangeToOrder() {

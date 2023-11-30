@@ -9,7 +9,7 @@ export const TopBar = () => {
     <div className={styles.container}>
       <div className={styles.left}>
         <Link href="/discounts" className={styles.linkItem}>
-          Акцій
+          Акції
         </Link>
         <Link href="/contacts" className={styles.linkItem}>
           Контакти

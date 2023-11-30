@@ -15,6 +15,7 @@ export const FormSelectTime: FC<Props> = ({ start, end, onChange, value }) => {
   const [options, setOptions] = useState<any[]>([]);
 
   useEffect(() => {
+    console.log(start, end);
     const timeGenerator = new TimeRoundedArrayGenerator(start, end, 10);
     const timeArray = timeGenerator.generateRoundedTime();
 
