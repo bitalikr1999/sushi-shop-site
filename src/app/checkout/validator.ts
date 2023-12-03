@@ -7,6 +7,9 @@ const constraints = {
   shippingType: { presence: presenceCost },
   isDeliveryToTime: { presence: presenceCost },
   // deliveryToTime: { presence: presenceCost },
+  addresLine: {
+    addressLineWhenAddress: true,
+  },
 };
 export const validateCheckoutForm = (data: any) => {
   return validate(data, constraints);

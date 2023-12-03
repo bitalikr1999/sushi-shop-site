@@ -39,7 +39,10 @@ interface Form {
 }
 
 const CheckoutPage = () => {
-  const form = useForm<Form>({}, validateCheckoutForm);
+  const form = useForm<Form>(
+    { shippingType: ShippingType.AddressDelivery, isDeliveryToTime: "no" },
+    validateCheckoutForm
+  );
   const router = useRouter();
   const basket = useBasketStore((s) => s.items);
   const clearBasket = useBasketStore((s) => s.clear);
@@ -69,7 +72,6 @@ const CheckoutPage = () => {
 
   const submit = async () => {
     try {
-      console.log("errors");
       setLoading(true);
       await createOrderReq({
         user: {
@@ -179,7 +181,10 @@ const CheckoutPage = () => {
             />
           </FormControllWrap>
           {form.values.shippingType !== ShippingType.SelfPickup ? (
-            <FormControllWrap title="Адреса доставки">
+            <FormControllWrap
+              title="Адреса доставки"
+              error={form.errors.addresLine}
+            >
               <Input
                 value={form.values.addresLine}
                 onChange={(val) => form.setFormField("addresLine", val)}

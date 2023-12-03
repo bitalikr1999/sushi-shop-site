@@ -1,3 +1,4 @@
+import { ShippingType } from "@/typing/interfaces";
 import _ from "lodash";
 import moment from "moment";
 import _validate from "validate.js";
@@ -74,6 +75,21 @@ _validate.validators.characters = (
   if (String(value).search(/[^a-zA-Zа-яА-я0-9а-яієїйьЇІ"'.)(, -]+/) !== -1)
     return options.message ? options.message : "^common.validations.characters";
 
+  return null;
+};
+
+_validate.validators.addressLineWhenAddress = (
+  value: any,
+  options: any,
+  key: any,
+  attributes: any
+) => {
+  if (attributes.shippingType === ShippingType.AddressDelivery && !value) {
+    return (
+      options.message ||
+      "^Поле адреси є обов'язковим, коли тип доставки - адреса"
+    );
+  }
   return null;
 };
 
