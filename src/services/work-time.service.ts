@@ -1,5 +1,6 @@
 import { getCurrentShiftReq } from "@/api/schedule";
 import { IScheduleShift } from "@/typing/interfaces";
+import { defaultTo } from "lodash";
 import moment from "moment";
 
 class WorkTimeService {
@@ -15,11 +16,11 @@ class WorkTimeService {
   }
 
   public getStartWork() {
-    return this.currentShift.start;
+    return defaultTo(this.currentShift?.start, 1100);
   }
 
   public getEndWork() {
-    return this.currentShift.end;
+    return defaultTo(this.currentShift?.end, 2200);
   }
 
   public getMinRangeToOrder() {
@@ -82,12 +83,20 @@ class WorkTimeService {
   }
 
   public getOpenLaterMessage() {
+    if (this.currentShift?.isClosed) return null;
+
     const nowTime = workTimeService.combineTimeToNumber(new Date());
 
     if (nowTime < this.getStartWork())
       return `Заклад відчинеться о ${workTimeService.getTimeString(
         this.getStartWork()
       )}, але ви можете оформити замовлення зараз наперед`;
+  }
+
+  public isOpenLater() {
+    if (this.currentShift?.isClosed) return false;
+    const nowTime = workTimeService.combineTimeToNumber(new Date());
+    return nowTime < this.getStartWork();
   }
 }
 

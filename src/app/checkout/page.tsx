@@ -50,25 +50,15 @@ const CheckoutPage = () => {
 
   const [isLoading, setLoading] = useState(false);
 
-  const [shift, setShift] = useState<IScheduleShift>();
   const basketPreview = useBackerPreviewStore(selectBacketPreview);
 
-  const load = async () => {
-    try {
-      const { data } = await getCurrentShiftReq();
-      setShift(data);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  const shiftMessage = workTimeService.getCurrentStateMessage();
+  const isOpenLater = workTimeService.isOpenLater();
 
   useEffect(() => {
-    load();
-  }, []);
-
-  const shiftMessage = useMemo(() => {
-    return workTimeService.getCurrentStateMessage(shift);
-  }, [shift]);
+    if (isOpenLater && form.values.isDeliveryToTime === "no")
+      form.setFormField("isDeliveryToTime", "yes");
+  }, [isOpenLater, form.values.isDeliveryToTime]);
 
   const submit = async () => {
     try {
@@ -108,6 +98,25 @@ const CheckoutPage = () => {
       setLoading(false);
     }
   };
+
+  const startTime = useMemo(() => {
+    if (!isOpenLater) return 0;
+    if (form.values.shippingType === ShippingType.AddressDelivery) return 100; // 1 hour
+    return 30; // 30 minutes
+  }, [isOpenLater, form.values]);
+
+  const timeOptions = [
+    {
+      value: "yes",
+      label: "Обрати годину",
+    },
+  ];
+
+  if (!isOpenLater)
+    timeOptions.unshift({
+      value: "no",
+      label: "По готовності",
+    });
 
   if (shiftMessage) return <p>{shiftMessage}</p>;
   return (
@@ -199,16 +208,7 @@ const CheckoutPage = () => {
             <FormRadioControll
               value={form.values.isDeliveryToTime}
               onChange={(val) => form.setFormField("isDeliveryToTime", val)}
-              options={[
-                {
-                  value: "no",
-                  label: "По готовності",
-                },
-                {
-                  value: "yes",
-                  label: "Обрати годину",
-                },
-              ]}
+              options={timeOptions}
             />
           </FormControllWrap>
           {form.values.isDeliveryToTime === "yes" ? (
@@ -217,7 +217,7 @@ const CheckoutPage = () => {
               error={form.errors.deliveryToTime}
             >
               <FormSelectTime
-                start={workTimeService.getMinRangeToOrder()}
+                start={Number(workTimeService.getMinRangeToOrder()) + startTime}
                 end={workTimeService.getMaxRangeToOrder()}
                 value={form.values.deliveryToTime}
                 onChange={(val) => form.setFormField("deliveryToTime", val)}
