@@ -9,8 +9,6 @@ import { BasketFooter } from "./components/basket-footer";
 import { BasketList } from "../basket-list";
 
 import { useRouter } from "next/navigation";
-import { IScheduleShift } from "@/typing/interfaces";
-import { getCurrentShiftReq } from "@/api/schedule";
 import { workTimeService } from "@/services/work-time.service";
 import "./basket-modal.css";
 
@@ -19,24 +17,7 @@ export const BasketModal = () => {
   const closeModal = useBasketStore((state) => state.closeModal);
   const router = useRouter();
 
-  const [shift, setShift] = useState<IScheduleShift>();
-
-  const load = async () => {
-    try {
-      const { data } = await getCurrentShiftReq();
-      setShift(data);
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  useEffect(() => {
-    load();
-  }, []);
-
-  const shiftMessage = useMemo(() => {
-    return workTimeService.getCurrentStateMessage(shift);
-  }, [shift]);
+  const shiftMessage = workTimeService.getCurrentStateMessage();
 
   const goToCheckout = () => {
     closeModal();
