@@ -10,6 +10,8 @@ interface Props {
 export const AddProductToBasketButton: FC<Props> = ({ product }) => {
   const addToBasket = useBasketStore((state) => state.add);
 
+  if (Number(product.price) === 0) return null;
+
   return (
     <button onClick={() => addToBasket(product)} className={styles.btn}>
       Замовити

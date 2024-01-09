@@ -71,21 +71,23 @@ class WorkTimeService {
     }
   }
 
-  public getCurrentStateMessage(shift: IScheduleShift | undefined) {
-    if (!shift) return "";
-
-    if (shift?.isClosed)
+  public getCurrentStateMessage() {
+    if (this.currentShift?.isClosed)
       return "Заклад не приймає сьогодні замовлень, вибачте за незручності.";
 
     const nowTime = workTimeService.combineTimeToNumber(new Date());
 
-    if (nowTime < shift?.start)
-      return `Заклад відчинеться о ${workTimeService.getTimeString(
-        shift.start
-      )}`;
-
-    if (nowTime > shift.end)
+    if (nowTime > this.getEndWork())
       return "Вибачте за незручності але ми вже зачинені і не приймаємо замовлень сьогодні. Повертайтесь завтра";
+  }
+
+  public getOpenLaterMessage() {
+    const nowTime = workTimeService.combineTimeToNumber(new Date());
+
+    if (nowTime < this.getStartWork())
+      return `Заклад відчинеться о ${workTimeService.getTimeString(
+        this.getStartWork()
+      )}, але ви можете оформити замовлення зараз наперед`;
   }
 }
 

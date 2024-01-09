@@ -12,6 +12,8 @@ interface Props {
 }
 
 const Price: FC<Props> = ({ product }) => {
+  if (Number(product.price) === 0) return null;
+
   if (product.discount) {
     return (
       <>
