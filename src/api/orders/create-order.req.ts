@@ -2,7 +2,7 @@ import { ShippingType } from "@/typing/interfaces";
 import api from "../axios";
 
 export const createOrderReq = (payload: CreateOrderPayload) => {
-  return api.post("/api/orders", payload);
+  return api.post<number>("/api/orders", payload);
 };
 
 export interface CreateOrderPayload {

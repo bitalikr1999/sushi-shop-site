@@ -6,8 +6,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 export const CatalogBackButton = () => {
   const sp = useSearchParams();
 
-  console.log(sp);
-
   const parentKey = sp.get("parentKey");
   if (!parentKey) return null;
 

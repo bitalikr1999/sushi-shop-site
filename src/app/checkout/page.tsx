@@ -63,7 +63,7 @@ const CheckoutPage = () => {
   const submit = async () => {
     try {
       setLoading(true);
-      await createOrderReq({
+      const { data: id } = await createOrderReq({
         user: {
           email: form.values.userEmail,
           phoneNumber: form.values.userPhone,
@@ -92,7 +92,7 @@ const CheckoutPage = () => {
       clearBasket();
       clearBasketPreview();
 
-      router.push("/checkout/success");
+      router.push(`/checkout/success?id=${id}`);
     } catch (e) {
     } finally {
       setLoading(false);

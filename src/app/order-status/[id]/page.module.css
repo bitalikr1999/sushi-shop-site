@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    border: 1px solid rgba(0,0,0,.05);
+    width: 500px;
+    padding: 15px;
+   
+}
+
+.title {
+    color: #4FAF73;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+}
+
+
+.total {
+    font-size: 16px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+.commentBlock {
+    
+    
+}
+
+.commentLabel { 
+    opacity: 0.5;
+    font-size: 14px;
+    margin-bottom: 3px;
+    margin-top: 20px;
+
+}
+
+.comment {
+    border: 1px solid rgba(0,0,0,.05);
+    padding: 10px;
+    font-size: 14px;
+}

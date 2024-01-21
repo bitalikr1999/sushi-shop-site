@@ -13,6 +13,7 @@ export const fetchProductsReq = (params: IFetchProductsParams) => {
 export interface IFetchProductsParams {
   categoryKey?: string;
   withDiscount?: boolean;
+  sort?: string;
 }
 
 interface IFetchProductsResponse {
